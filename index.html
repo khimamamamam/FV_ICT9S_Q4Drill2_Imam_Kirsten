@@ -133,27 +133,27 @@ kbd {
 
 
 table {
-    box-shadow:
-        0 8px 32px rgba(255, 217, 0, 0.3),
-        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    border-collapse: separate;
+    border-spacing: 0;
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.05); /* very transparent */
     backdrop-filter: blur(15px) saturate(180%);
     -webkit-backdrop-filter: blur(15px) saturate(180%);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
 
 table thead th, table tbody td {
-    background: rgba(255, 255, 255, 0.05); /* transparent */
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.05); /* semi-transparent glass */
+    border: none; /* remove solid border to let backdrop show */
     color: #fff;
     text-shadow: 0 0 3px rgba(205, 161, 4, 0.717);
     transition: 0.3s;
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
 }
 
 tr:hover td {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.12); /* slightly more visible on hover */
 }
 
 table thead {
