@@ -90,7 +90,7 @@ h2, h5 {
 
 
 input, select, textarea {
-    background: rgba(255, 255, 255, 0.1);  /* semi-transparent */
+    background: rgba(255, 255, 255, 0.1);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
@@ -131,30 +131,27 @@ kbd {
     transition: 0.3s;
 }
 
-/* Table container is still opaque, card can stay */
 .card {
-    background: rgba(50, 50, 50, 0.8); /* opaque/dark around the table */
+    background: rgba(90, 74, 0, 0.8);
     border-radius: 20px;
     padding: 1rem;
     backdrop-filter: blur(15px);
 }
 
-/* Table itself is fully glassy */
 table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.05); /* very transparent */
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(15px) saturate(180%);
     -webkit-backdrop-filter: blur(15px) saturate(180%);
     border: none;
 }
 
-/* Table header & cells are glassy too */
 table thead th, table tbody td {
-    background: rgba(255, 255, 255, 0.05); /* transparent glass */
-    border: none; /* remove solid borders */
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
     color: #fff;
     text-shadow: 0 0 3px rgba(205, 161, 4, 0.7);
     transition: 0.3s;
@@ -163,7 +160,7 @@ table thead th, table tbody td {
 }
 
 table thead {
-    background: rgba(255, 255, 255, 0.1); /* transparent glass */
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px) saturate(180%);
     -webkit-backdrop-filter: blur(15px) saturate(180%);
     color: #fff;
