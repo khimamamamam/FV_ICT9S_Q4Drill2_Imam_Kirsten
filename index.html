@@ -133,18 +133,19 @@ kbd {
 
 
 table {
+    width: 100%;
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.05); /* very transparent */
+    background: rgba(255, 255, 255, 0.05); /* transparent glass */
     backdrop-filter: blur(15px) saturate(180%);
     -webkit-backdrop-filter: blur(15px) saturate(180%);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
 
+/* Table header and cells */
 table thead th, table tbody td {
-    background: rgba(255, 255, 255, 0.05); /* semi-transparent glass */
-    border: none; /* remove solid border to let backdrop show */
+    background: rgba(255, 255, 255, 0.05); /* glassy */
+    border: none; /* remove solid borders */
     color: #fff;
     text-shadow: 0 0 3px rgba(205, 161, 4, 0.717);
     transition: 0.3s;
@@ -152,6 +153,7 @@ table thead th, table tbody td {
     -webkit-backdrop-filter: blur(10px) saturate(180%);
 }
 
+/* Hover effect */
 tr:hover td {
     background: rgba(255, 255, 255, 0.12); /* slightly more visible on hover */
 }
@@ -185,7 +187,7 @@ tr:hover {
 
 
 .card {
-    background: rgba(30, 30, 30, 0.3); /* semi-transparent */
+    background: rgba(50, 50, 50, 0.8); /* darker, more opaque */
     border-radius: 20px;
     padding: 1rem;
     backdrop-filter: blur(15px);
