@@ -12,7 +12,7 @@
 
         body {
             margin: 0;
-            height: 100vh;
+            min-height: 100vh;
             font-family: 'Orbitron', sans-serif;
             position: relative;
             overflow-x: hidden;
@@ -23,11 +23,9 @@
             position: fixed;
             inset: 0;
             z-index: -1;
-        
             background-size: cover;
             background-position: center;
             animation: slide 12s ease-in-out infinite;
-        
             filter: blur(6px) brightness(1);
             transform: scale(1.1) rotate(-2deg);
         }
@@ -41,29 +39,17 @@
         }
         
         @keyframes slide {
-        
             0% {
                 background-image: url("https://i.pinimg.com/736x/d7/c6/3a/d7c63a05c3afc61325be53c4be5d728d.jpg");
-                filter: blur(6px) brightness(1);
-                transform: scale(1.1) rotate(-2deg);
             }
-        
             40% {
                 background-image: url("https://i.pinimg.com/control1/1200x/64/02/7d/64027daf8b4998a8d4374d577c3bc585.jpg");
-                filter: blur(8px) brightness(1.3);
-                transform: scale(1.2) rotate(3deg);
             }
-        
             80% {
                 background-image: url("https://i.pinimg.com/control1/736x/8f/65/63/8f6563a9d339ed641b026cb444d1fe3d.jpg");
-                filter: blur(7px) brightness(1.2);
-                transform: scale(1.15) rotate(-3deg);
             }
-        
             100% {
                 background-image: url("https://i.pinimg.com/1200x/f9/6b/cb/f96bcb05e4b84fd5cd189b6cb7995202.jpg");
-                filter: blur(6px) brightness(1);
-                transform: scale(1.1) rotate(0deg);
             }
         }
 
@@ -78,32 +64,104 @@
             color: black;
         }
 
-        table {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 10px;
-        overflow: hidden;
-        }
 
-        th {
-            background: #ffb300;
-            color: black;
-        }
+h2, h5 {
+    text-shadow:
+        0 0 5px #ffd54f,
+        0 0 10px #ffb300,
+        0 0 20px rgba(255, 179, 0, 0.6);
+}
 
-        td {
-            color: white;
-        }
+.btn-custom {
+    background: linear-gradient(135deg, #ffd54f, #ff9800);
+    color: black;
+    border: none;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #ffb300;
+}
 
-        tr:hover {
-            background: rgba(255, 179, 0, 0.2);
-            transition: 0.3s;
-        }
+.btn-custom:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 0 15px #ffb300,
+        0 0 30px rgba(255, 179, 0, 0.8);
+}
 
+
+input {
+    background: rgba(255,255,255,0.1) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 179, 0, 0.5) !important;
+    box-shadow: 0 0 8px rgba(255, 179, 0, 0.5);
+}
+
+input::placeholder {
+    color: #ffd54f; 
+    opacity: 1;   
+}
+
+kbd {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #fff;
+    background: rgba(0,0,0,0.8);
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 10px #ffb300,
+        inset 0 0 10px rgba(255, 179, 0, 0.6);
+
+    text-shadow:
+        0 0 5px #ffd54f,
+        0 0 10px #ffb300;
+
+    transition: 0.3s;
+}
+
+
+table {
+    background: rgba(255, 195, 0, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    overflow: hidden;
+    color: #3b2e00;
+    box-shadow: 0 0 15px rgba(255, 179, 0, 0.3);
+}
+
+th {
+    background: rgba(255, 179, 0, 0.2);
+    color: #3b2e00;               
+    text-shadow: 0 0 3px rgba(255, 217, 78, 0.4);
+}
+
+td {
+    background: rgba(255, 217, 78, 0.05); 
+    color: #3b2e00;
+}
+
+tr:hover {
+    background: rgba(255, 179, 0, 0.25);
+    box-shadow: inset 0 0 10px rgba(255, 179, 0, 0.4);
+    transition: 0.3s;
+}
+
+
+.card {
+    background: rgba(30, 30, 30, 0.95);
+    border-radius: 20px;
+    box-shadow:
+        0 0 20px rgba(255, 179, 0, 0.3),
+        inset 0 0 15px rgba(255,255,255,0.05);
+}
     </style>
 </head>
 
 <body>
 
-<div class="container d-flex justify-content-center align-items-center h-100">
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
     <div class="card p-4 shadow-lg" style="width: 350px;">
 
         <h2 class="text-warning text-center">Heat Index Checker</h2>
@@ -131,59 +189,63 @@
     </div>
 </div>
 
-<hr>
+<div class="container mt-4 mb-5">
+    <div class="card p-3 shadow-lg">
 
-<h5 class="text-center text-warning mt-3">Heat Index Guide</h5>
+        <h5 class="text-center text-warning">Heat Index Guide</h5>
 
-<table class="table table-bordered text-center mt-2">
-    <thead class="table-dark">
-        <tr>
-            <th>Temperature (°C)</th>
-            <th>Humidity (%)</th>
-            <th>Heat Index (°C)</th>
-            <th>Status</th>
-        </tr>
-    </thead>
+        <div class="table-responsive">
+            <table class="table table-bordered text-center mt-2">
+                <thead>
+                    <tr>
+                        <th>Temperature (°C)</th>
+                        <th>Humidity (%)</th>
+                        <th>Heat Index (°C)</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
 
-    <tbody>
+                <tbody>
+                    <tr>
+                        <td>20 – 24</td>
+                        <td>30 – 50</td>
+                        <td>≤ 27</td>
+                        <td>Comfortable / Cool</td>
+                    </tr>
 
-        <tr>
-            <td>20 – 24</td>
-            <td>30 – 50</td>
-            <td>≤ 27</td>
-            <td>Comfortable / Cool</td>
-        </tr>
+                    <tr>
+                        <td>25 – 27</td>
+                        <td>40 – 60</td>
+                        <td>28 – 32</td>
+                        <td>Warm</td>
+                    </tr>
 
-        <tr>
-            <td>25 – 27</td>
-            <td>40 – 60</td>
-            <td>28 – 32</td>
-            <td>Warm</td>
-        </tr>
+                    <tr>
+                        <td>28 – 31</td>
+                        <td>50 – 70</td>
+                        <td>33 – 37</td>
+                        <td>Hot</td>
+                    </tr>
 
-        <tr>
-            <td>28 – 31</td>
-            <td>50 – 70</td>
-            <td>33 – 37</td>
-            <td>Hot</td>
-        </tr>
+                    <tr>
+                        <td>32 – 35</td>
+                        <td>60 – 80</td>
+                        <td>38 – 41</td>
+                        <td>Very Hot / Caution</td>
+                    </tr>
 
-        <tr>
-            <td>32 – 35</td>
-            <td>60 – 80</td>
-            <td>38 – 41</td>
-            <td>Very Hot / Caution</td>
-        </tr>
+                    <tr>
+                        <td>36+</td>
+                        <td>70 – 100</td>
+                        <td>≥ 42</td>
+                        <td>Extreme Heat / Danger</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        <tr>
-            <td>36+</td>
-            <td>70 – 100</td>
-            <td>≥ 42</td>
-            <td>Extreme Heat / Danger</td>
-        </tr>
-
-    </tbody>
-</table>
+    </div>
+</div>
 
 <script>
 
@@ -198,45 +260,53 @@
 
     function checkHeat(){
 
-        // VARIABLES
-        var temp = parseFloat(document.getElementById("temp").value);
-        var humidity = parseFloat(document.getElementById("humidity").value);
+    var temp = parseFloat(document.getElementById("temp").value);
+    var humidity = parseFloat(document.getElementById("humidity").value);
 
-        // COMPUTE HEAT INDEX
-        var heatIndex = temp + (0.33 * humidity) - 4;
 
-        var status = "";
-
-        // SWITCH TRUE (like your reference)
-        switch(true){
-
-            case (heatIndex <= 27):
-                status = "Comfortable / Cool";
-                break;
-
-            case (heatIndex >= 28 && heatIndex <= 32):
-                status = "Warm";
-                break;
-
-            case (heatIndex >= 33 && heatIndex <= 37):
-                status = "Hot";
-                break;
-
-            case (heatIndex >= 38 && heatIndex <= 41):
-                status = "Very Hot / Caution";
-                break;
-
-            case (heatIndex >= 42):
-                status = "Extreme Heat / Danger";
-                break;
-
-            default:
-                status = "Invalid input";
-        }
-
-        document.getElementById("result").innerHTML = 
-            "Heat Index: " + heatIndex.toFixed(2) + "°C <br> Status: " + status;
+    if(isNaN(temp) || isNaN(humidity)) {
+        alert("Please enter valid numbers for temperature and humidity.");
+        return;
     }
+
+    if(temp < -50 || temp > 60){
+        alert("Temperature out of realistic range (-50°C to 60°C).");
+        return;
+    }
+
+    if(humidity < 0 || humidity > 100){
+        alert("Humidity must be between 0% and 100%.");
+        return;
+    }
+
+    var heatIndex = temp + (0.33 * humidity) - 4;
+
+    var status = "";
+
+    switch(true){
+        case (heatIndex <= 27):
+            status = "Comfortable / Cool";
+            break;
+        case (heatIndex >= 28 && heatIndex <= 32):
+            status = "Warm";
+            break;
+        case (heatIndex >= 33 && heatIndex <= 37):
+            status = "Hot";
+            break;
+        case (heatIndex >= 38 && heatIndex <= 41):
+            status = "Very Hot / Caution";
+            break;
+        case (heatIndex >= 42):
+            status = "Extreme Heat / Danger";
+            break;
+        default:
+            status = "Invalid input";
+    }
+
+
+    document.getElementById("result").innerHTML = 
+        `<kbd>Heat Index: ${heatIndex.toFixed(2)}°C | ${status}</kbd>`;
+}
 
 </script>
 
