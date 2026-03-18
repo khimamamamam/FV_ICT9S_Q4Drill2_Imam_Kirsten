@@ -36,7 +36,7 @@
             content: "";
             position: fixed;
             inset: 0;
-            background: rgba(255, 217, 78, 0.5);
+            background: rgba(255, 217, 78, 0.201);
             z-index: -1;
         }
         
@@ -66,10 +66,105 @@
                 transform: scale(1.1) rotate(0deg);
             }
         }
+
+        .card {
+            background: #1e1e1e;
+            color: white;
+            border-radius: 20px;
+        }
+
+        .btn-custom {
+            background-color: #ffb300;
+            color: black;
+        }
+
     </style>
 </head>
 
 <body>
-    
+
+<div class="container d-flex justify-content-center align-items-center h-100">
+    <div class="card p-4 shadow-lg" style="width: 350px;">
+
+        <h2 class="text-warning text-center">Heat Index Checker</h2>
+
+        <button class="btn btn-secondary btn-sm mb-2" onclick="toggleInstructions()">Show/Hide Instructions</button>
+
+        <p id="instructions" style="display:none; font-size: 12px;">
+            Enter temperature (°C) and humidity (%), then click check to see the heat index and its status.
+        </p>
+
+        <label>Temperature (°C)</label>
+        <input type="number" id="temp" class="form-control mb-2" placeholder="Enter temperature">
+
+        <label>Humidity (%)</label>
+        <input type="number" id="humidity" class="form-control mb-3" placeholder="Enter humidity">
+
+        <button class="btn btn-custom w-100" onclick="checkHeat()">Check</button>
+
+        <p id="result" class="mt-3 text-center"></p>
+
+        <p style="font-size:10px; text-align:center;">
+            Source: <a href="https://www.weather.gov/safety/heat-index" target="_blank">NOAA Heat Index</a>
+        </p>
+
+    </div>
+</div>
+
+<script>
+
+    function toggleInstructions(){
+        var x = document.getElementById("instructions");
+        if(x.style.display === "none"){
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+    function checkHeat(){
+
+        // VARIABLES
+        var temp = parseFloat(document.getElementById("temp").value);
+        var humidity = parseFloat(document.getElementById("humidity").value);
+
+        // COMPUTE HEAT INDEX
+        var heatIndex = temp + (0.33 * humidity) - 4;
+
+        var status = "";
+
+        // SWITCH TRUE (like your reference)
+        switch(true){
+
+            case (heatIndex <= 27):
+                status = "Comfortable / Cool";
+                break;
+
+            case (heatIndex >= 28 && heatIndex <= 32):
+                status = "Warm";
+                break;
+
+            case (heatIndex >= 33 && heatIndex <= 37):
+                status = "Hot";
+                break;
+
+            case (heatIndex >= 38 && heatIndex <= 41):
+                status = "Very Hot / Caution";
+                break;
+
+            case (heatIndex >= 42):
+                status = "Extreme Heat / Danger";
+                break;
+
+            default:
+                status = "Invalid input";
+        }
+
+        document.getElementById("result").innerHTML = 
+            "Heat Index: " + heatIndex.toFixed(2) + "°C <br> Status: " + status;
+    }
+
+</script>
+
 </body>
 </html>
