@@ -131,23 +131,32 @@ kbd {
     transition: 0.3s;
 }
 
+/* Table container is still opaque, card can stay */
+.card {
+    background: rgba(50, 50, 50, 0.8); /* opaque/dark around the table */
+    border-radius: 20px;
+    padding: 1rem;
+    backdrop-filter: blur(15px);
+}
 
+/* Table itself is fully glassy */
 table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.05); /* transparent glass */
+    background: rgba(255, 255, 255, 0.05); /* very transparent */
     backdrop-filter: blur(15px) saturate(180%);
     -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border: none;
 }
 
-/* Table header and cells */
+/* Table header & cells are glassy too */
 table thead th, table tbody td {
-    background: rgba(255, 255, 255, 0.05); /* glassy */
+    background: rgba(255, 255, 255, 0.05); /* transparent glass */
     border: none; /* remove solid borders */
     color: #fff;
-    text-shadow: 0 0 3px rgba(205, 161, 4, 0.717);
+    text-shadow: 0 0 3px rgba(205, 161, 4, 0.7);
     transition: 0.3s;
     backdrop-filter: blur(10px) saturate(180%);
     -webkit-backdrop-filter: blur(10px) saturate(180%);
@@ -185,13 +194,6 @@ tr:hover {
     transition: 0.3s;
 }
 
-
-.card {
-    background: rgba(104, 74, 0, 0.8); /* darker, more opaque */
-    border-radius: 20px;
-    padding: 1rem;
-    backdrop-filter: blur(15px);
-}
 
 .card table {
     background: rgba(255,255,255,0.05); 
